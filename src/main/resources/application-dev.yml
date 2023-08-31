@@ -1,0 +1,18 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+logging:
+  level:
+    org:
+      hibernate:
+        engine:
+          jdbc:
+            spi:
+              SqlExceptionHelper: warn
+        type:
+          descriptor:
+            sql: trace
+        SQL: DEBUG
+    web: debug

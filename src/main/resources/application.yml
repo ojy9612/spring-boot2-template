@@ -1,1 +1,46 @@
 
+
+spring:
+  profiles:
+    default: dev
+  config:
+    import: application-static.yml
+
+  db-name:
+    datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url:
+      username:
+      password:
+
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    generate-ddl: true
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          batch_size: 10000
+        order_updates: true
+        order_inserts: true
+
+logging:
+  config: classpath:logback-spring.xml
+
+
+springdoc:
+  swagger-ui:
+    version: v1
+    enabled: true
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: method
+
+  api-docs:
+    path: /api-docs
+    version: openapi_3_0
+    enabled: true
+  default-produces-media-type: application/json
+
