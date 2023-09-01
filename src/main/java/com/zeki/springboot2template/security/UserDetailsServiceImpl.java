@@ -15,7 +15,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional(readOnly = true) // TODO : UserEntity로 변경
     public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
         String userEntity = "Entity";
 

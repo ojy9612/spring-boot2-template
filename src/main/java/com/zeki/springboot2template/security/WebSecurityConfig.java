@@ -49,7 +49,7 @@ public class WebSecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         //TODO : localhost 제거
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:43000", "http://3.38.41.220:43000"));
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:43000"));   // TODO : CORS 허용할 도메인 설정
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "OPTIONS", "PUT", "DELETE", "PATCH"));
         configuration.setAllowedHeaders(List.of("*"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
@@ -77,7 +77,7 @@ public class WebSecurityConfig {
                 .antMatchers("/cache/**").permitAll()
                 .antMatchers("/token/**").permitAll()
 
-                .antMatchers("/").permitAll()
+                .antMatchers("/").permitAll()   // TODO : 적절히 조절
 
                 .antMatchers("/company/**").authenticated()
                 .antMatchers("/ship/**").authenticated()

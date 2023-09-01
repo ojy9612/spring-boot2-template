@@ -22,21 +22,16 @@ public class WebClientConnector {
 
     public void callWebHookReport(Map<String, String> requestBody) {
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
-        params.add("key", statics.getWebhookReport().getKey());
-        params.add("token", statics.getWebhookReport().getToken());
+        params.add("key", statics.getWebhook().getKey());
+        params.add("token", statics.getWebhook().getToken());
 
         webClientBuilder.request()
-                .post(statics.getWebhookReport().getUrl(), params, requestBody)
+                .post(statics.getWebhook().getUrl(), params, requestBody)
                 .connectBlock()
                 .toVoidCall();
     }
 
-    public String callSoapString(String url, String path, Map<String, String> headers, String requestBody) {
-        return (String) webClientBuilder.request()
-                .post(url, path, requestBody)
-                .connectBlock(headers, String.class)
-                .toObjectCall();
-    }
+
 
     public Mono<?> callSoapStringBySubscribe(String url, String path, Map<String, String> headers, String requestBody) {
         return webClientBuilder.request()

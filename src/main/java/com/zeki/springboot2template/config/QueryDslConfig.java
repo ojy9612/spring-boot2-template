@@ -10,12 +10,12 @@ import javax.persistence.PersistenceContext;
 @Configuration
 public class QueryDslConfig {
 
-    @PersistenceContext(unitName = "operaEntityManager")
-    private EntityManager operaEntityManager;
+    @PersistenceContext(unitName = "dbNameEntityManager")
+    private EntityManager dbNameEntityManager;
 
     @Bean
-    public JPAQueryFactory operaJpaQueryFactory() {
-        return new JPAQueryFactory(operaEntityManager);
+    public JPAQueryFactory dbNameJpaQueryFactory() {
+        return new JPAQueryFactory(dbNameEntityManager);
     }
 }
 

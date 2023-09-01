@@ -11,7 +11,7 @@ import org.springframework.util.ObjectUtils;
 @Log4j2
 public class ExceptionUtils {
 
-    public static final String PREFIX = "com.h2o";
+    public static final String PREFIX = "com.zeki"; // TODO : 프로젝트 패키지명으로 변경
 
     /**
      *  응답 객체 생성

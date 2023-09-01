@@ -23,7 +23,7 @@ public class UserDetailsImpl implements UserDetails {
 
     private final List<UserRole> userRoleList;
 
-    public UserDetailsImpl(String userEntity) {
+    public UserDetailsImpl(String userEntity) { // TODO : 생성자 UserEnitiy로 작성
         this.userId = null;
         this.name = null;
         this.password = null;

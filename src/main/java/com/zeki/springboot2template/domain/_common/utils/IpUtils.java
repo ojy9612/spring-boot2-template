@@ -32,7 +32,7 @@ public class IpUtils {
     }
 
     private static boolean notValidIp(String ip) {
-        return ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip);
+        return ip == null || ip.isEmpty() || "unknown".equalsIgnoreCase(ip);
     }
 
     @Nullable

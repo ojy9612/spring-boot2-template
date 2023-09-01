@@ -51,9 +51,6 @@ public enum ResponseCode {
     INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "500_3", "서버 에러, 반드시 백엔드 호출할것!"),
     OPTIMISTIC_LOCKING_FAILURE(HttpStatus.INTERNAL_SERVER_ERROR, "500_4", "낙관적 락 발~동!"),
     CONNECT_WEBCLIENT_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "500_5", "WebClient 연결 에러"),
-    RESERVE_FAILED(HttpStatus.INTERNAL_SERVER_ERROR, "500_90", "예약 등록에 실패했습니다."),
-    CANCEL_FAILED(HttpStatus.INTERNAL_SERVER_ERROR, "500_91", "예약 취소에 실패했습니다."),
-    ALERT_FAILED(HttpStatus.INTERNAL_SERVER_ERROR, "500_92", "얼럿 등록에 실패했습니다."),
     ;
 
     private final HttpStatus status;

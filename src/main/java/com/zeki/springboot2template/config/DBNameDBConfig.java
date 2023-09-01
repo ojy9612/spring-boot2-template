@@ -2,7 +2,6 @@ package com.zeki.springboot2template.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -16,22 +15,22 @@ import javax.sql.DataSource;
 import java.util.HashMap;
 
 
-@Configuration
+//@Configuration    // TODO
 @EnableTransactionManagement
-@EnableJpaRepositories(entityManagerFactoryRef = "operaEntityManager",
-        transactionManagerRef = "operaTransactionManager",
-        basePackages = "com.")
+@EnableJpaRepositories(entityManagerFactoryRef = "dbNameEntityManager",
+        transactionManagerRef = "dbNameTransactionManager",
+        basePackages = "com.") // TODO
 @RequiredArgsConstructor
-public class OperaDBConfig {
+public class DBNameDBConfig {
     private final Environment env;
 
     @Bean
     public DataSource operaDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(env.getProperty("spring.opera.datasource.driver-class-name"));
-        dataSource.setUrl(env.getProperty("spring.opera.datasource.jdbc-url"));
-        dataSource.setUsername(env.getProperty("spring.opera.datasource.username"));
-        dataSource.setPassword(env.getProperty("spring.opera.datasource.password"));
+        dataSource.setDriverClassName(env.getProperty("spring.db-name.datasource.driver-class-name"));
+        dataSource.setUrl(env.getProperty("spring.db-name.datasource.jdbc-url"));
+        dataSource.setUsername(env.getProperty("spring.db-name.datasource.username"));
+        dataSource.setPassword(env.getProperty("spring.db-name.datasource.password"));
         return dataSource;
     }
 
@@ -41,7 +40,7 @@ public class OperaDBConfig {
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         HashMap<String, Object> properties = new HashMap<>();
         localContainerEntityManagerFactoryBean.setDataSource(operaDataSource());
-        localContainerEntityManagerFactoryBean.setPackagesToScan("com.");
+        localContainerEntityManagerFactoryBean.setPackagesToScan("com."); // TODO
         localContainerEntityManagerFactoryBean.setJpaVendorAdapter(vendorAdapter);
         properties.put("hibernate.hbm2ddl.auto", env.getProperty("spring.main.hibernate.hbm2ddl.auto"));
         properties.put("hibernate.dialect", env.getProperty("spring.main.hibernate.dialect"));

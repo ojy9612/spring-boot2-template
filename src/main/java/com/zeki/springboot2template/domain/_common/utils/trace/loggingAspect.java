@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Log4j2
 public class loggingAspect {
 
-    @Pointcut("execution(* com.h2o.rmooperaagentparnas.domain.parnas..service..*(..))")
+    @Pointcut("execution(* com..domain..service..*(..))")
     public void serviceMethods() {
     }
 

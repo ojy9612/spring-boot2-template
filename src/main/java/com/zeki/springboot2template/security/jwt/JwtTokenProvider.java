@@ -23,7 +23,7 @@ import java.util.List;
 @Component
 public class JwtTokenProvider {
     // 토큰 유효시간 30분
-    public static final Long TOKEN_VALID_TIME = 50 * 365 * 24 * 2 * 30 * 60 * 1000L;
+    public static final Long TOKEN_VALID_TIME = 30 * 60 * 1000L;
     private final UserDetailsService userDetailsService;
 
     @Value("${key.jwt.secret-key}")
